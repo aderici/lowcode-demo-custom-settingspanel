@@ -21,6 +21,7 @@ import LogoSamplePlugin from './plugins/plugin-logo-sample';
 import SimulatorLocalePlugin from './plugins/plugin-simulator-locale';
 import appHelper from './appHelper';
 import './global.scss';
+import SettingsPanelPlugin from './plugins/plugin-settings-panel';
 
 async function registerPlugins() {
   await plugins.register(EditorInitPlugin, {
@@ -92,7 +93,7 @@ async function registerPlugins() {
   await plugins.register(PreviewSamplePlugin);
 
   await plugins.register(CustomSetterSamplePlugin);
-
+  await plugins.register(SettingsPanelPlugin);
   // 设计器区域多语言切换
   await plugins.register(SimulatorLocalePlugin);
 };
@@ -103,6 +104,7 @@ async function registerPlugins() {
   init(document.getElementById('lce-container')!, {
     locale: 'zh-CN',
     enableCondition: true,
+    disableDefaultSettingPanel:true,
     enableCanvasLock: true,
     // 默认绑定变量
     supportVariableGlobally: true,
